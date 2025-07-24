@@ -1,4 +1,6 @@
-streamlit>=1.40.0
-transformers>=4.41.1
-huggingface_hub>=0.23.0
-requests>=2.31.0
+beautifulsoup4==4.13.4
+Bio==1.8.0
+biopython==1.85
+openai==0.28.0
+Requests==2.32.4
+streamlit==1.47.0
