@@ -223,4 +223,3 @@ dependencies:
       - yarg==0.1.10
       - yarl==1.20.1
       - zstandard==0.23.0
-prefix: /home/chenxi/anaconda3/envs/chem_agent
