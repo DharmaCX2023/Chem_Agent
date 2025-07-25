@@ -10,6 +10,8 @@
 ### Step 1: Install Dependencies
 Run the following command to install required packages:
 ```bash
+conda create -n my_env
+conda install -c conda-forge rdkit
 pip install -r requirements.txt
 ```
 ### Step 2: Use the assistant
