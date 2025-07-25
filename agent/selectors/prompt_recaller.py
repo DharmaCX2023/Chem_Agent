@@ -54,12 +54,11 @@ def recall_knowledge(history: str, chemical: str, chemical_id: str, api_key: str
     **Rules**:
     1. Do not add new fields or values. Only remove invalid pairs.
     2. Do not modify valid values (keep them exactly as in {known_fields} if verified).
-    3. Output must be a raw Python dictionary without no code blocks and parseable with eval().
+    3. Output must be a raw Python dictionary with no code blocks and parseable with eval().
     """
 
     known_fields = _query_openai_once(reason_prompt)
     final = filter_valid_fields(known_fields, chemical, chemical_id)
-    print(final, "\n-----Cleaned Knowledge-----\n")
 
     return final
 

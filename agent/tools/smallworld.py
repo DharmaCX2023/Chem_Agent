@@ -7,7 +7,7 @@ def query_smallworld(smiles: str):
         "smi": smiles,
         "db": "REAL-Database-22Q1",
         "start": 0,
-        "length": 20,
+        "length": 5,
         "dist": "1-3",
         "async": "true",
     }
