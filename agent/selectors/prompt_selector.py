@@ -6,7 +6,6 @@ inputs, outputs = get_identifier_and_properties()
 
 def define_problem(user_query: str, api_key: str) -> dict:
     openai.api_key = api_key
-
     system_prompt = f"""
 You are a chemistry assistant tool selector.
 
@@ -38,8 +37,8 @@ Output Python dict format:
 }}
 
 Return a valid Python dict without code block markers that can be directly processed with eval(). 
-Only if there is no chemicals or properties are found, tell the user to specify the question.
-If more than one chemical is found in the query, tell the user it is not supported yet
+Only if there is no chemicals or properties are found, return an empty dict.
+If more than one chemical is found in the query, return an empty dict.
 """
 
     messages = [
@@ -47,14 +46,16 @@ If more than one chemical is found in the query, tell the user it is not support
         {"role": "user", "content": user_query}
     ]
 
-    for attempt in range(5):
+    for attempt in range(3):
         try:
+            print("trying")
             response = openai.ChatCompletion.create(
                 model="gpt-4o",
                 messages=messages,
                 temperature=0,
             )
             reply = response["choices"][0]["message"]["content"]
+            print(reply, "reply")
             return eval(reply)
 
         except openai.error.RateLimitError as e:
@@ -63,4 +64,4 @@ If more than one chemical is found in the query, tell the user it is not support
         except Exception as e:
             print("Tool selection failed:", e)
             time.sleep(2)
-    raise RuntimeError("Tool selection failed: aborting...")
+            return {"error": f"Failed to Find a Chemical Problem."}

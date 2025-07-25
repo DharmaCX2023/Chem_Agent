@@ -19,7 +19,7 @@ Run the AI research assistant:
 ```bash
 streamlit run main.py
 ```
-Enter your openai and serpapi tokens in the sidebar and start chatting!
+Enter your OpenAI and Serpapi tokens in the sidebar and start chatting!
 
 ## Credits
 - *Created by: Xi Chen,* *Email: chenxi17@tsinghua.org.cn*

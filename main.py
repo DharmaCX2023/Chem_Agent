@@ -30,7 +30,7 @@ if not st.session_state.welcome_shown:
     st.session_state.welcome_shown = True
 
 with st.sidebar:
-    st.header(" API Keys")
+    st.header("API Keys")
     openai_key = st.text_input("OpenAI API Key", type="password") # load_key_from_file("openai_token.txt") #
     serpapi_key = st.text_input("SerpAPI Key (for patent search)", type="password", help="Optional, needed for patent-related queries.") # load_key_from_file("serpapi_token.txt") #
 
@@ -87,4 +87,4 @@ if openai_key:
                 else:
                     st.markdown(content)
 else:
-    st.warning("Please enter your OpenAI API key to start.")
+    st.warning("Please enter your OpenAI and Serpapi API key to start.")
