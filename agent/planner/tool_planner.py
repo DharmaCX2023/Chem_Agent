@@ -3,7 +3,7 @@ from agent.planner.tool_spec import TOOL_SPECS
 
 def plan_path(initial_inputs: list, target_output: str):
     from copy import deepcopy
-    print(target_output, initial_inputs, "\n-----Initial and Target\n-----")
+    print(target_output, initial_inputs, "\n-----Initial and Target-----\n")
     best_plan = None
     shortest_len = float("inf")
     max_iterations = 5

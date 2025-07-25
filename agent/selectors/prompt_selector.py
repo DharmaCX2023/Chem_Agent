@@ -48,14 +48,13 @@ If more than one chemical is found in the query, return an empty dict.
 
     for attempt in range(3):
         try:
-            print("trying")
             response = openai.ChatCompletion.create(
                 model="gpt-4o",
                 messages=messages,
                 temperature=0,
+                timeout = 10
             )
             reply = response["choices"][0]["message"]["content"]
-            print(reply, "reply")
             return eval(reply)
 
         except openai.error.RateLimitError as e:

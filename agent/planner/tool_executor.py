@@ -16,7 +16,7 @@ TOOL_IMPLS = {
 def execute_plan(plan, initial_inputs, chemical_id, tool_specs = TOOL_SPECS):
     context = dict(initial_inputs)
     known = list(context[chemical_id].keys())
-    print(plan, "\n-----Planning...\n-----")
+    print(plan, "\n-----Planning...-----\n")
 
     for step in plan:
         tool = step["use"]

@@ -31,12 +31,12 @@ class ChatManager:
                                         tool_selection["chemical_identifier_type"][0],
                                         self.openai_key)
 
-            print(recalled, "\n-----Recalled Knowledge\n-----")
+            print(recalled, "\n-----Recalled Knowledge-----\n")
 
             results = []
             for request in tool_selection["properties"]:
                 if request in outputs:
-                    plan = plan_path(recalled[tool_selection["chemical"][0]].keys(), request)
+                    plan = plan_path(list(recalled[tool_selection["chemical"][0]].keys()), request)
                     if isinstance(plan, list):
                         results.append(execute_plan(plan, recalled, tool_selection["chemical"][0]))
 
@@ -46,7 +46,7 @@ class ChatManager:
             if tool_selection["needs_web_search"]:
                 results.append(web_search.simple_web_search(tool_selection["web_search_keywords"][0], self.openai_key))
 
-            print(results, "\n-----API results\n-----")
+            print(results, "\n-----API Results-----\n")
 
         final_answer = self.format_response(tool_selection["properties"],
                                             tool_selection["needs_patent"],
